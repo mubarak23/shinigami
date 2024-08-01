@@ -69,6 +69,7 @@ pub impl CompilerTraitImpl of CompilerTrait {
         opcodes.insert('OP_RESERVED1', Opcode::OP_RESERVED1);
         opcodes.insert('OP_RESERVED2', Opcode::OP_RESERVED2);
         opcodes.insert('OP_VER', Opcode::OP_VER);
+        opcodes.insert('OP_PICK', Opcode::OP_PICK);
 
         Compiler { opcodes }
     }

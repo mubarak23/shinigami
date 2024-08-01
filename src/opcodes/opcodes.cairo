@@ -50,6 +50,7 @@ pub mod Opcode {
     pub const OP_RESERVED1: u8 = 137;
     pub const OP_RESERVED2: u8 = 138;
     pub const OP_VER: u8 = 98;
+    pub const OP_PICK: u8 = 121;
 
 
     use shinigami::engine::{Engine, EngineTrait};
@@ -178,7 +179,7 @@ pub mod Opcode {
             118 => opcode_dup(ref engine),
             119 => not_implemented(ref engine),
             120 => not_implemented(ref engine),
-            121 => not_implemented(ref engine),
+            121 => opcode_pick(ref engine),
             122 => not_implemented(ref engine),
             123 => not_implemented(ref engine),
             124 => not_implemented(ref engine),
@@ -500,5 +501,10 @@ pub mod Opcode {
     }
     fn opcode_ver(ref engine: Engine) {
         panic!("attempt to execute reserved opcode ver");
+    }
+
+    fn opcode_pick(ref engine: Engine) {
+        let a = engine.dstack.pop_int();
+        engine.dstack.push_int(a);
     }
 }
