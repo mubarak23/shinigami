@@ -118,7 +118,10 @@ pub mod Opcode {
     pub const OP_DROP: u8 = 117;
     pub const OP_DUP: u8 = 118;
     pub const OP_NIP: u8 = 119;
+
     pub const OP_OVER: u8 = 120;
+
+    pub const OP_PICK: u8 = 121;
     pub const OP_ROT: u8 = 123;
     pub const OP_SWAP: u8 = 124;
     pub const OP_TUCK: u8 = 125;
