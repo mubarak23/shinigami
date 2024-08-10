@@ -107,3 +107,8 @@ pub fn opcode_over(ref engine: Engine) -> Result<(), felt252> {
     engine.dstack.over_n(1)?;
     return Result::Ok(());
 }
+
+pub fn opcode_2over(ref engine: Engine) -> Result<(), felt252> {
+    engine.dstack.over_n(2)?;
+    return Result::Ok(());
+}
