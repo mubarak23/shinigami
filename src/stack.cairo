@@ -187,6 +187,11 @@ pub impl ScriptStackImpl of ScriptStackTrait {
         return Result::Ok(value);
     }
 
+    fn pick_n(ref self: ScriptStack, idx: i32) -> Result<(), felt252> {
+        let so = self.peek_byte_array(idx.try_into().unwrap())?;
+        self.push_byte_array(so);
+        return Result::Ok(());
+    }
     // copies N items N items back to the top of the stack.
 
     fn over_n(ref self: ScriptStack, n: u32) -> Result<ByteArray, felt252> {
@@ -201,10 +206,5 @@ pub impl ScriptStackImpl of ScriptStackTrait {
         };
 
         return Result::Ok("completed");
-    }
-    fn pick_n(ref self: ScriptStack, idx: i32) -> Result<(), felt252> {
-        let so = self.peek_byte_array(idx.try_into().unwrap())?;
-        self.push_byte_array(so);
-        return Result::Ok(());
     }
 }
