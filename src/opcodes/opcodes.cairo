@@ -45,6 +45,7 @@ pub mod Opcode {
     pub const OP_2DROP: u8 = 109;
     pub const OP_2DUP: u8 = 110;
     pub const OP_3DUP: u8 = 111;
+    pub const OP_2OVER: u8 = 112;
     pub const OP_2ROT: u8 = 113;
     pub const OP_2SWAP: u8 = 114;
     pub const OP_IFDUP: u8 = 115;
@@ -52,6 +53,7 @@ pub mod Opcode {
     pub const OP_DROP: u8 = 117;
     pub const OP_DUP: u8 = 118;
     pub const OP_NIP: u8 = 119;
+    pub const OP_OVER: u8 = 120;
     pub const OP_ROT: u8 = 123;
     pub const OP_SWAP: u8 = 124;
     pub const OP_TUCK: u8 = 125;
@@ -221,7 +223,7 @@ pub mod Opcode {
             117 => stack::opcode_drop(ref engine),
             118 => stack::opcode_dup(ref engine),
             119 => stack::opcode_nip(ref engine),
-            120 => utils::not_implemented(ref engine),
+            120 => stack::opcode_over(ref engine),
             121 => utils::not_implemented(ref engine),
             122 => utils::not_implemented(ref engine),
             123 => stack::opcode_rot(ref engine),
